@@ -1,12 +1,23 @@
 const express = require('express');
-
+const mysql = require('mysql2');
 const app = express();
+const indexRoutes = require('./routes/books')
+const config = require('./config')
 
+
+const db = mysql.createConnection(config)
 const port = process.env.PORT ||5000
 
-app.get('/', (req, res) => {
-    res.send('First node appへようこそ これからmysqlを導入したい')
+
+db.connect((error) => {
+  if (error) {
+    console.log('error', error);
+  }else {
+    console.log('データベースに接続しました')
+  }
 })
+
+app.use('/', indexRoutes)
 
 
 app.listen(port, () => {
