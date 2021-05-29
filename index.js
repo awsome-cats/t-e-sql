@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const app = express();
 const indexRoutes = require('./routes/books')
-const config = require('./config')
+const config = require('./config/config')
 
 
 const db = mysql.createConnection(config)
