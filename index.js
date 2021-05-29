@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT ||5000
 
 app.get('/', (req, res) => {
-    res.send('First node appへようこそ')
+    res.send('First node appへようこそ これからmysqlを導入したい')
 })
 
 
